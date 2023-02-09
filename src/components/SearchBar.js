@@ -1,10 +1,17 @@
 import React from "react";
 
-function SearchBar() {
+function SearchBar({setSearch, setSorted}) {
+
+  const year = new Date().getFullYear()
+
+  function handleChange(){
+  setSorted(sorted => !sorted)
+  }
+
   return (
     <div className="search">
-      <input type="text" className="searchTerm" />
-      {/* For the advanced deliverables: add a checkbox to allow sorting the planeteer */}
+      <input type="text" className="searchTerm" onChange = {(e) => setSearch(e.target.value)} />
+      <input type="checkbox" onClick={handleChange}/>
     </div>
   );
 }
